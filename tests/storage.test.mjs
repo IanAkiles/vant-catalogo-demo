@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {KEY,readProducts,readPhone} from '../src/storage.js';
+import {KEY,STORE_PHONE,readProducts,readPhone} from '../src/storage.js';
 
-test('storage denial keeps the catalog usable without an invented phone',()=>{
+test('storage denial keeps the catalog usable with the supplied store phone',()=>{
  const previous=globalThis.localStorage;
  try{
   globalThis.localStorage={getItem(){throw new Error('Storage denied');}};
   assert.equal(readProducts().length,4);
-  assert.equal(readPhone(),'');
+  assert.equal(readPhone(),STORE_PHONE);
  }finally{globalThis.localStorage=previous;}
 });
 

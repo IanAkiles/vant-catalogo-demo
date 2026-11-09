@@ -1,5 +1,13 @@
 # VANT demo — visual and interaction review
 
+## Category arrows and WhatsApp contact — 2026-11-09
+
+Mobile categories now have separate previous/next chevrons. Each appears only when content remains in that direction, scrolls on tap, and respects reduced motion. Both stay hidden on desktop. Browser verification passed: next reaches the last category and hides; previous appears and returns to the beginning; filtering remains functional. Captures: `../vant-demo-review/categories-arrow.png` and `categories-back.png`; the latter was visually inspected.
+
+Store default contact is the user-supplied +55 69 9317-3172, encoded as `556993173172`. Verified generated `wa.me` URL and decoded message containing the selected product, M size and R$ 159,00. No external conversation was opened or message sent; account ownership/reachability is not verified. A saved local panel override still takes precedence over the default.
+
+Category/contact revision final result: passed
+
 ## Latest revision: separate owner page and portrait cards — 2026-11-08
 
 - Storefront `/` contains no owner panel or admin link. `/admin` and `/admin/` load a separate lazy component with existing product management, counts and a storefront link. This is route separation, not authentication.
