@@ -61,3 +61,26 @@ body:has(dialog[open]){overflow:hidden}
 @media(hover:none),(pointer:coarse){.quick-sizes{position:static;opacity:1;visibility:visible;transform:none;padding:10px 0 0;background:var(--bg,#f7f0e6)}.quick-sizes>span{display:none}.quick-sizes button{min-height:44px}.discover{display:none}}
 @media(max-width:600px){.quick-sizes{position:static;opacity:1;visibility:visible;transform:none;padding:10px 0 0;background:#f7f0e6}.quick-sizes>span{display:none}.quick-sizes>div{gap:4px}.quick-sizes button{min-width:28px;min-height:44px;font-size:11px}.categories button:after{height:3px}.product-gallery{width:100%;max-width:360px;margin:auto}.gallery-image{max-width:280px;margin:auto}.gallery-controls{justify-content:center}.product-gallery>.fine{text-align:center}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.product:hover .product-photo:hover .artwork{transform:none!important}}
+
+/* Portrait frames preserve the full garment in the current square demo artwork. */
+.product-open{aspect-ratio:3/4;display:flex;align-items:center;background:#ded3c5}
+.product-open>.artwork{width:100%;flex-shrink:0}
+.more-menu{display:none}
+.page-loading{padding:40px}
+.owner-page{min-height:100dvh;background:#f7f0e6}
+.owner-header{display:flex;align-items:center;gap:25px;padding:22px max(24px,calc((100vw - 1100px)/2));border-bottom:1px solid var(--line)}
+.owner-header>a:first-child{width:130px;flex-shrink:0}
+.owner-header>span{font-size:11px;letter-spacing:1.5px;color:#69645b}
+.owner-header>.secondary{margin-left:auto;white-space:nowrap}
+.owner-main{max-width:1100px;margin:0 auto;padding:42px 24px 60px}
+.owner-intro h1{font-size:34px;letter-spacing:-1.2px;margin:12px 0}
+.owner-intro p{font-size:14px;color:#69645b;line-height:1.6}
+.owner-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.owner-stats>div{border:1px solid var(--line);padding:22px;background:#faf5ed}
+.owner-stats strong{display:block;color:var(--blue);font-size:30px;margin-bottom:8px}
+.owner-stats span{font-size:12px;color:#69645b}
+.owner-main>.admin{padding:24px;background:#faf5ed;border:1px solid var(--line)}
+.owner-page .admin-row>.artwork{width:70px}
+.owner-page .admin-row .icon{min-width:44px;min-height:44px}
+@media(max-width:600px){.more-menu{display:inline-flex;min-height:44px;padding:4px!important}.more-menu svg{width:16px!important;transition:transform .2s}.more-menu[aria-expanded=true] svg{transform:rotate(180deg)}.mobile-nav{flex-wrap:wrap;gap:8px 20px;padding:12px 18px}.mobile-nav button{min-height:44px;padding:6px 0}.owner-header{padding:16px;gap:12px}.owner-header>a:first-child{width:100px}.owner-header>span{display:none}.owner-header>.secondary{font-size:12px;padding:10px 12px}.owner-main{padding:28px 16px}.owner-intro h1{font-size:28px}.owner-stats{gap:8px}.owner-stats>div{padding:15px 10px}.owner-stats strong{font-size:26px}.owner-stats span{font-size:10px}.owner-main>.admin{padding:14px}.owner-page .admin-row{flex-wrap:wrap}.owner-page .admin-row>.artwork{width:48px}.owner-page .admin-row>div:nth-child(2){flex:1;min-width:calc(100% - 65px)}.owner-page .admin-row>button:first-of-type{margin-left:auto}.owner-page .form-actions{flex-wrap:wrap}}
+@media(max-width:380px){.header{margin:0 12px}.brand{width:110px}.header-actions .icon{padding:6px}.header-actions svg{width:22px}}

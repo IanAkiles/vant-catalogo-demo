@@ -1,5 +1,18 @@
 # VANT demo — visual and interaction review
 
+## Latest revision: separate owner page and portrait cards — 2026-11-08
+
+- Storefront `/` contains no owner panel or admin link. `/admin` and `/admin/` load a separate lazy component with existing product management, counts and a storefront link. This is route separation, not authentication.
+- Shared artwork uses an absolute asset URL, verified from `/admin/`.
+- Approved clarification: two columns on phones, portrait 3:4 frames, and a small chevron next to the bag that opens Loja/Coleções/Sobre. Square mockup photos remain centered inside the frame so garments are not cropped or stretched.
+- Browser checks passed: create/edit/hide/delete a disposable product; persistence on reload; changes reflected in the other storefront tab; no admin link on storefront; menu toggle and About action; two columns and portrait dimensions; logo/actions do not overlap at 320/390 px; no horizontal overflow or page errors.
+- Regression checks passed: hover, quick size, gallery zoom, message with M/quantity 2/R$ 318,00, search, categories, keyboard and reduced motion.
+- Visually inspected `../vant-demo-review/admin-desktop.png`, `admin-mobile-320.png` and `mobile-menu-390.png`. Mobile panel screenshot now waits for lazy-loaded content, not the loading fallback.
+- Build passed; seven prior tests and two new storage tests passed. The storage tests cover denied storage and an intentionally empty catalog.
+- Limits: local browser data only, no authentication or server authorization. No real WhatsApp send or multi-device persistence was tested or implemented. Portrait margins can be removed once original portrait photography is available.
+
+Latest revision final result: passed
+
 Visual source: latest approved mock shown in the conversation: centered logo, cream background, blue interface icons, no blue promotional band, four-column catalog and editorial. Local artwork source: `public/assets/vant-reference.png` (1487 × 1058), with the requested header and banner changes implemented in CSS/layout.
 
 Implementation: http://127.0.0.1:4173/, reviewed through the in-app browser at 1487 × 1058 and 390 × 844 CSS pixels, plus default narrow sidebar viewport. Screenshot evidence is inline in the task conversation, not saved as a repository image. This is a visual review, not a pixel-difference certification.

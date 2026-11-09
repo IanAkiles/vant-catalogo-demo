@@ -23,12 +23,13 @@ npm run test:sites
 2. Abra uma peça, selecione tamanho, cor e quantidade.
    No desktop, passe o mouse na foto para revelar os tamanhos; no celular, eles ficam visíveis. Também funciona por teclado. Selecionar um tamanho abre a peça com essa opção marcada. No detalhe, toque na foto ou use “Ampliar detalhe” para aproximar a mesma imagem.
 3. Prepare o pedido para revisar/copiar a mensagem. Não existe contato de WhatsApp predefinido.
-4. No rodapé, abra **Painel demonstrativo** para cadastrar, editar, ocultar ou excluir peças.
+4. Abra `/admin` diretamente para cadastrar, editar, ocultar ou excluir peças. O painel é uma página separada, sem link na vitrine. “Ver vitrine” abre a loja em outra aba; alterações se refletem entre abas do mesmo navegador.
 5. Opcionalmente configure um número autorizado (55 + DDD + número) em Configuração. O comprador precisa enviar a mensagem no WhatsApp.
 
 ## Limites
 
 - Painel demonstrativo SEM autenticação. Não usar em produção.
+- Separar a rota não protege o acesso. `/admin` ainda exige autenticação e autorização no servidor antes do uso real.
 - Produtos e contato ficam no localStorage deste navegador. Não sincronizam; limpar dados remove alterações.
 - Sem confirmação de pedido, reserva de estoque, pagamentos ou cálculo de entrega.
 - Upload JPG/PNG/WebP até 1,5 MB, sujeito ao espaço do navegador. Exporte JSON e guarde as fotos originais.
@@ -39,3 +40,7 @@ npm run test:sites
 ## Publicação
 
 `npm run build` gera `dist/client` para hospedagem estática. O adaptador Sites do template foi preservado. GitHub armazena código; push não publica automaticamente um site.
+
+A hospedagem precisa de fallback de navegação para `index.html`, incluindo `/admin` e `/admin/`. Vite e o adaptador Sites já atendem essas rotas.
+
+No celular, a seta ao lado da sacola abre Loja, Coleções e Sobre. A grade mantém duas peças por linha em quadros 3:4. As fotos quadradas do mockup são centralizadas com margem para preservar a peça inteira; fotos verticais originais ainda precisam ser fornecidas.
