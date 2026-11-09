@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+2026-11-08: Improve storefront interactions using CLASS, SUFGANG and Down as behavioral references while preserving the approved composition. Production admin is explicitly deferred. Keep motion subtle, respect reduced-motion preferences and make quick sizes available on touch and keyboard. Current product images have one view only: label magnification as zoom, never as a different product angle.
+
 VANT direction: centered original logo, electric blue interface icons, cream base, no blue promotional banner. Catalog-first page, four desktop columns and two mobile columns. Preserve this scope during revisions. This is a demo, with browser-local admin data and no production credentials or automatic WhatsApp sending.
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.

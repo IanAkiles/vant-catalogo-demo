@@ -29,3 +29,22 @@ Implementation: http://127.0.0.1:4173/, reviewed through the in-app browser at 1
 - Admin is visibly marked as local-only and unauthenticated. Never deploy it as the production admin.
 
 final result: passed
+
+## Storefront interaction revision — 2026-11-08
+
+Approved composition retained: centered logo, cream base, blue icons, no blue banner, four desktop/two mobile columns, existing editorial.
+
+Reference evidence:
+- CLASS (https://classofficial.com.br/): public rendered stylesheet includes secondary-image opacity transitions, a 1.03 image zoom and card actions revealed on hover. Product cards expose sizes. Adapted as restrained photo zoom and quick size selection, without copying brand assets.
+- SUFGANG (https://sufgang.com.br/): public stylesheet includes quick-add reveal, image zoom variants and reduced-motion handling. Adapted as subtle card/dialog transitions and reduced-motion support. Stylesheet capabilities are not proof every optional effect is active.
+- Down (https://www.downjacquards.com.br/shop/): directly opened catalog in Chrome, with clear product grid, categories and size filters. Initial web-text result returned a password page; browser access subsequently succeeded. Cross-origin stylesheet fetch returned HTTP errors, so no exact animation/timing claim is made for Down. Retained the product-first hierarchy and accessible size discovery.
+
+Browser verification: isolated Chrome, desktop 1487 × 1058 and touch/mobile 390 × 844. Screenshots saved alongside this repository in `../vant-demo-review/`: desktop.png, desktop-hover.png, detail.png, mobile.png, mobile-detail.png. Desktop hover, zoomed detail and full mobile captures inspected visually. No main-page horizontal overflow on mobile.
+
+Passed: hover zoom and size reveal; quick M selection retained; gallery zoom toggle; quantity 2 gives R$ 318,00 in message; Escape; category filtering; search; keyboard quick selection; reduced motion disables animation/transitions; touch selection G; no browser page errors. Build and seven existing automated tests passed.
+
+Fixed during verification: competing CSS selector suppressed hover zoom. Test selectors were narrowed to exact size labels rather than substring matches in color labels.
+
+Limits: no new admin work, backend, payment or real WhatsApp delivery; pre-existing local demo panel remains unchanged. Gallery zoom enlarges the same low-resolution mockup crop, not a second photograph. Replace with original client photography before production. No public hosting deployed in this revision.
+
+final result: passed

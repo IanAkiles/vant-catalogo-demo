@@ -21,6 +21,7 @@ npm run test:sites
 
 1. Explore categorias e busca.
 2. Abra uma peça, selecione tamanho, cor e quantidade.
+   No desktop, passe o mouse na foto para revelar os tamanhos; no celular, eles ficam visíveis. Também funciona por teclado. Selecionar um tamanho abre a peça com essa opção marcada. No detalhe, toque na foto ou use “Ampliar detalhe” para aproximar a mesma imagem.
 3. Prepare o pedido para revisar/copiar a mensagem. Não existe contato de WhatsApp predefinido.
 4. No rodapé, abra **Painel demonstrativo** para cadastrar, editar, ocultar ou excluir peças.
 5. Opcionalmente configure um número autorizado (55 + DDD + número) em Configuração. O comprador precisa enviar a mensagem no WhatsApp.
