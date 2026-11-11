@@ -88,3 +88,5 @@ body:has(dialog[open]){overflow:hidden}
 @media(max-width:600px){.category-strip{padding:0 38px}.category-next,.category-previous{display:flex;position:absolute;right:-4px;top:4px;width:38px;height:44px;padding:8px;background:#f7f0e6}.category-strip .categories{scroll-padding-right:8px}}
 
 @media(max-width:600px){.category-previous{left:-4px;right:auto}}
+
+.auth-card{max-width:490px;margin:30px auto;padding:34px;border:1px solid var(--line);background:#faf5ed}.auth-card h1{font-size:32px;letter-spacing:-1px;line-height:1.15}.auth-card>p{font-size:14px;line-height:1.7;color:#69645b}.auth-form{padding:18px 0 0}.auth-form .primary{width:100%}.auth-switch{padding:16px 0;color:var(--blue);text-decoration:underline;font-size:13px}.editor-fields{margin:0}.admin .checkbox-label{flex-direction:row;align-items:center;margin-top:22px}.checkbox-label input{width:18px;height:18px;accent-color:var(--blue)}.owner-intro .eyebrow{overflow-wrap:anywhere}@media(max-width:600px){.auth-card{margin:12px auto;padding:22px}.auth-card h1{font-size:28px}.owner-header>.secondary{margin-left:auto}}

@@ -1,5 +1,7 @@
 # Prototype Instructions
 
+2026-11-11: Customer approved the sales catalog; preserve its layout. Admin now has a Supabase-backed implementation awaiting project activation. In absent configuration, `/admin` shows setup status and offers an explicit local demo; in partial/invalid configuration, fail closed. Keep owner authorization in database RLS, never merely in client UI. Real credentials, deployment and SMTP remain unconfigured. Follow SETUP-PAINEL.md for activation; this supersedes earlier local-admin-only scope.
+
 Mobile category strip: show small blue chevrons for both directions when categories are offscreen. Each scrolls the category strip on tap and disappears at its respective edge. Keep it separate from the top menu chevron beside the bag.
 
 2026-11-08 follow-up: Owner panel now lives on `/admin` (also accept `/admin/`) and must not be linked or rendered inside the customer storefront. Keep two columns on mobile, with portrait 3:4 product frames. A small blue chevron next to the mobile bag opens additional navigation; it is not a scroll hint. Admin remains explicitly a local demo until real authentication and shared persistence are implemented. These instructions supersede the earlier admin deferral.

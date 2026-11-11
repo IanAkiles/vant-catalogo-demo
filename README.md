@@ -1,6 +1,10 @@
 # VANT — demo de catálogo
 
-Demo navegável: fundo creme, logo centralizada, ícones azuis, catálogo sem faixa azul e editorial. React + Vite, sem backend.
+Demo navegável: fundo creme, logo centralizada, ícones azuis, catálogo sem faixa azul e editorial. React + Vite. Integração Supabase preparada para login, banco e fotos; ativação pendente.
+
+## Painel real — ativação pendente
+
+Veja [SETUP-PAINEL.md](SETUP-PAINEL.md). Sem configuração, a vitrine mantém a demonstração aprovada e `/admin` mostra o estado de ativação. Com Supabase configurado, o painel exige conta autorizada, a vitrine lê peças publicadas do banco e não usa produtos locais como fallback em caso de erro. Nenhum projeto externo foi criado.
 
 ## Executar
 
@@ -17,16 +21,16 @@ npm run build
 npm run test:sites
 ```
 
-## Demonstrar
+## Demonstrar sem serviço conectado
 
 1. Explore categorias e busca.
 2. Abra uma peça, selecione tamanho, cor e quantidade.
    No desktop, passe o mouse na foto para revelar os tamanhos; no celular, eles ficam visíveis. Também funciona por teclado. Selecionar um tamanho abre a peça com essa opção marcada. No detalhe, toque na foto ou use “Ampliar detalhe” para aproximar a mesma imagem.
 3. Prepare o pedido para revisar/copiar a mensagem. O contato padrão informado para a loja é +55 69 9317-3172. A mensagem só é enviada quando o comprador confirma no WhatsApp.
-4. Abra `/admin` diretamente para cadastrar, editar, ocultar ou excluir peças. O painel é uma página separada, sem link na vitrine. “Ver vitrine” abre a loja em outra aba; alterações se refletem entre abas do mesmo navegador.
+4. Abra `/admin` diretamente para cadastrar, editar, ocultar ou excluir peças. Clique em “Explorar demonstração local”. O painel é uma página separada, sem link na vitrine. “Ver vitrine” abre a loja em outra aba; alterações se refletem entre abas do mesmo navegador.
 5. Opcionalmente configure um número autorizado (55 + DDD + número) em Configuração. O comprador precisa enviar a mensagem no WhatsApp.
 
-## Limites
+## Limites do modo demonstrativo
 
 - Painel demonstrativo SEM autenticação. Não usar em produção.
 - Separar a rota não protege o acesso. `/admin` ainda exige autenticação e autorização no servidor antes do uso real.

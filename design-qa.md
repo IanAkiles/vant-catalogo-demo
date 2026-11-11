@@ -1,5 +1,19 @@
 # VANT demo — visual and interaction review
 
+## Supabase admin preparation — 2026-11-11
+
+Status: implementation prepared, external activation pending. Sales catalog composition is preserved. Without environment configuration, `/admin` shows activation status with explicit opt-in to the old local demo. Partial/invalid configuration fails closed. With cloud configuration, no demo catalog fallback is used for network failures.
+
+Added owner login, sign-out, password recovery request/new-password view, owner authorization, remote product CRUD, hidden-by-default creation, required photo upload, publish/hide, search and save-error field preservation. Client keys are restricted to publishable/anon; privileged keys are rejected. Database migration includes independent owner-only RLS and storage policies.
+
+Verification: 12 automated tests passed, including executing the migration in PGlite/PostgreSQL with Auth/Storage fixtures. Anonymous and non-owner writes rejected, unpublished rows hidden, owner CRUD allowed, self-authorization rejected and storage bucket boundaries enforced. This does not certify a deployed Supabase project.
+
+Isolated browser with intercepted Supabase responses passed invalid login, recovery request, owner authorization, photo upload, failed save preserving input, hidden create, publish, remote storefront read, delete, logout and denial of a non-owner account. The final unconfigured-page assertion in that script timed out while the dev server loaded its lazy module; subsequently verified activation screen and explicit local-demo opening in the in-app browser. No actual account or message was created/sent.
+
+Evidence: `../vant-demo-review/admin-login.png` and `admin-cloud-mocked.png` depict mocked service responses, not a live store. Real email delivery, recovery-token round trip, Storage service limits and access across devices remain unverified until setup. See SETUP-PAINEL.md for exact activation and release checks. The previous QA sections are historical demo evidence.
+
+Local UI and policy checks: passed. Production activation: pending account/project, owner allowlist, SMTP and deployment verification.
+
 ## Category arrows and WhatsApp contact — 2026-11-09
 
 Mobile categories now have separate previous/next chevrons. Each appears only when content remains in that direction, scrolls on tap, and respects reduced motion. Both stay hidden on desktop. Browser verification passed: next reaches the last category and hides; previous appears and returns to the beginning; filtering remains functional. Captures: `../vant-demo-review/categories-arrow.png` and `categories-back.png`; the latter was visually inspected.
