@@ -38,7 +38,7 @@ npm run test:sites
 - Sem confirmação de pedido, reserva de estoque, pagamentos ou cálculo de entrega.
 - Upload JPG/PNG/WebP até 1,5 MB, sujeito ao espaço do navegador. Exporte JSON e guarde as fotos originais.
 - Imagens, preços e descrições ilustrativos. Imagens reaproveitam os mockups VANT por enquadramento CSS; não representam estoque real.
-- Backend, autenticação, regras de acesso e recuperação de dados precisam ser implementados separadamente na versão de produção.
+- Antes do uso real, ative a integração Supabase e valide autenticação, políticas de acesso e recuperação de senha com o [guia do painel](SETUP-PAINEL.md).
 - Não incluir credenciais, proposta comercial ou dados pessoais da cliente no repositório.
 
 ## Publicação
