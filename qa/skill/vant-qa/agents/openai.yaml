@@ -1,0 +1,5 @@
+interface:
+  display_name: "VANT QA"
+  short_description: "Teste catálogo, painel e CI da VANT"
+  brand_color: "#1200F5"
+  default_prompt: "Use $vant-qa para testar os fluxos da VANT, revisar as mudanças e verificar o CI com evidências."
