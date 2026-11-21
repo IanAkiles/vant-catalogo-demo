@@ -21,16 +21,18 @@ Os IDs abaixo correspondem aos títulos em `e2e/*.spec.js`; cada cenário roda e
 | AUTH-01 | Dado login incorreto, então mostrar erro; quando solicitar recuperação, então emitir pedido ao serviço e confirmação neutra. Isso não prova entrega de e-mail. |
 | AUTH-02 | Dada conta autenticada sem permissão de proprietária, então bloquear painel e não carregar produtos administrativos. RLS é validada separadamente em `tests/rls.test.mjs`. |
 | ADM-01 | Dada proprietária autenticada, quando cadastrar peça, então rejeitar arquivo inválido e criar oculta; falha ao salvar preserva campos; editar altera preço; publicar exibe na vitrine e ocultar remove; cancelar exclusão preserva peça, confirmar remove; sair retorna ao login. |
+| SAC-01 | Dadas várias peças, quando adicionar à sacola, então agrupar combinações iguais e separar tamanhos diferentes; recarregar preserva seleção; ajustar quantidades e remover recalcula total; uma única mensagem inclui todas as peças; sacola vazia não permite finalizar. |
+| SAC-02 | Dada sacola salva, quando recarregar o catálogo com preço atualizado, então usar o preço atual; se a peça ficar oculta, bloquear a finalização e pedir sua remoção. |
 
 ## Roteiro de verificação
 
 1. Verificar diff e ambiente sem expor `.env.local`.
 2. Build e testes Node (incluindo políticas SQL em PGlite).
-3. Executar os oito cenários acima nos dois projetos Playwright (16 execuções).
+3. Executar os dez cenários acima nos dois projetos Playwright (20 execuções).
 4. Revisar screenshots desktop/mobile, erros JS e traces das falhas.
 5. Conferir workflow `VANT QA` do SHA correspondente; registrar falhas e limitações.
 6. Validar manualmente, com autorização e dados de teste, o Supabase real, e-mail de recuperação e continuidade da conversa no WhatsApp antes de declarar produção validada.
 
 ## Condição de aprovação
 
-Build, testes Node e 16 execuções Playwright aprovados, sem exceções JS nem chamadas externas inesperadas; nenhum defeito crítico introduzido no diff. CI só recebe status aprovado depois de execução concluída no GitHub. Aprovação local não significa validação em produção, Firefox, Safari ou dispositivo físico.
+Build, testes Node e 20 execuções Playwright aprovados, sem exceções JS nem chamadas externas inesperadas; nenhum defeito crítico introduzido no diff. CI só recebe status aprovado depois de execução concluída no GitHub. Aprovação local não significa validação em produção, Firefox, Safari ou dispositivo físico.

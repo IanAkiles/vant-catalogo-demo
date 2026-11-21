@@ -12,7 +12,7 @@ npm test
 npm run test:e2e
 ```
 
-São 12 testes Node (incluindo SQL/RLS em PGlite) e oito cenários E2E executados em dois projetos (16 execuções). Consulte [personas, roteiro e critérios](qa/skill/vant-qa/references/acceptance.md).
+São 15 testes Node (incluindo SQL/RLS em PGlite e cálculos da sacola) e dez cenários E2E executados em dois projetos (20 execuções). Consulte [personas, roteiro e critérios](qa/skill/vant-qa/references/acceptance.md).
 
 ```sh
 npm run test:e2e:ui
@@ -33,3 +33,9 @@ Nenhuma peça real é criada/excluída, nenhum e-mail é enviado e o link WhatsA
 O workflow `.github/workflows/qa.yml` executa build, testes Node e Playwright em pushes para main, PRs e execução manual. Relatórios são retidos por sete dias. Não usa segredos da loja. A aprovação vale para o SHA executado; pipeline de publicação do GitHub Pages não substitui o QA.
 
 Na introdução desta suíte, o teste A11Y-01 reproduziu diálogos sem nome acessível. A correção adiciona `aria-label` com o título já exibido, sem mudança visual. A suíte verifica também fechamento por Escape e retorno do foco.
+
+## Sacola
+
+A sacola reúne combinações de peça, tamanho e cor; combinações iguais somam quantidades. Permite remover itens e ajustar de 1 a 10 unidades por combinação. A seleção é salva neste navegador, sem conta de comprador ou nova tabela no banco. Se o armazenamento estiver bloqueado, funciona apenas enquanto a página estiver aberta.
+
+Preços são obtidos do catálogo carregado, nunca do armazenamento da sacola. Peças ocultas, removidas ou com variações indisponíveis bloqueiam a finalização até serem removidas. O WhatsApp recebe uma mensagem única com detalhes, subtotais e total das peças; frete continua a combinar. Abrir o WhatsApp não confirma envio nem limpa a sacola.

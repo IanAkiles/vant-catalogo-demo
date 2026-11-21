@@ -19,8 +19,8 @@ test('PED-01 size, color, quantity and exact WhatsApp destination', async ({page
   await expect(page.getByRole('button', {name: 'Selecione um tamanho'})).toBeDisabled();
   await page.getByRole('dialog').getByRole('button', {name: 'M', exact: true}).click();
   await page.getByRole('button', {name: 'Aumentar quantidade'}).click();
-  await page.getByRole('button', {name: 'Preparar pedido'}).click();
-  const link = page.getByRole('link', {name: 'Abrir no WhatsApp'});
+  await page.getByRole('button', {name: 'Adicionar à sacola'}).click();
+  const link = page.getByRole('link', {name: 'Finalizar no WhatsApp'});
   const url = new URL(await link.getAttribute('href'));
   expect(url.origin + url.pathname).toBe('https://wa.me/556993173172');
   const message = url.searchParams.get('text');
