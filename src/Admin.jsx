@@ -1,3 +1,4 @@
+import {appBase} from './routes.js';
 import React,{lazy,Suspense,useEffect,useState} from 'react';
 import {ArrowUpRight} from '@phosphor-icons/react';
 import {Artwork} from './ui.jsx';
@@ -5,7 +6,7 @@ import {backend,config,isOwner} from './backend.js';
 import CloudAdmin from './CloudAdmin.jsx';
 const DemoAdmin=lazy(()=>import('./DemoAdmin.jsx'));
 
-function Shell({children}){return <div className="owner-page"><header className="owner-header"><a href="/" aria-label="VANT vitrine"><Artwork type="logo" label="VANT"/></a><span>PAINEL DA LOJA</span><a className="secondary" href="/">Ver vitrine <ArrowUpRight size={18}/></a></header><main className="owner-main">{children}</main></div>;}
+function Shell({children}){return <div className="owner-page"><header className="owner-header"><a href={appBase} aria-label="VANT vitrine"><Artwork type="logo" label="VANT"/></a><span>PAINEL DA LOJA</span><a className="secondary" href={appBase}>Ver vitrine <ArrowUpRight size={18}/></a></header><main className="owner-main">{children}</main></div>;}
 export default function Admin(){
  const [session,setSession]=useState(null),[ready,setReady]=useState(false),[access,setAccess]=useState('checking');
  const [recovery,setRecovery]=useState(false),[reset,setReset]=useState(false),[demo,setDemo]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState('');
@@ -19,7 +20,7 @@ export default function Admin(){
  async function submit(event){event.preventDefault();setBusy(true);setMessage('');const data=new FormData(event.currentTarget);
   try{
    if(recovery){if(data.get('password')!==data.get('confirm')){setMessage('As senhas precisam ser iguais.');return;}const {error}=await backend.auth.updateUser({password:data.get('password')});if(error)throw error;setRecovery(false);setMessage('Senha atualizada.');}
-   else if(reset){const {error}=await backend.auth.resetPasswordForEmail(data.get('email'),{redirectTo:location.origin+'/admin'});if(error)throw error;setMessage('Se o endereço estiver cadastrado, você receberá as instruções por e-mail.');}
+   else if(reset){const {error}=await backend.auth.resetPasswordForEmail(data.get('email'),{redirectTo:location.origin+appBase+'admin'+(appBase==='/'?'':'/')});if(error)throw error;setMessage('Se o endereço estiver cadastrado, você receberá as instruções por e-mail.');}
    else {const {error}=await backend.auth.signInWithPassword({email:data.get('email'),password:data.get('password')});if(error)throw error;}
   }catch{setMessage(reset?'Não foi possível solicitar a recuperação. Tente novamente mais tarde.':recovery?'Não foi possível atualizar a senha. Solicite um novo link.':'Não foi possível entrar. Confira os dados e sua conexão.');}finally{setBusy(false);}
  }

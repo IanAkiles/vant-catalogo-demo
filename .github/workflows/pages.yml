@@ -1,0 +1,44 @@
+name: Publish VANT to Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:pages
+      - uses: actions/configure-pages@v5
+        id: pages
+      - name: Build connected storefront
+        env:
+          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          node --input-type=module -e "import {backendConfig} from './src/backend-config.js'; if(backendConfig(process.env.VITE_SUPABASE_URL,process.env.VITE_SUPABASE_PUBLISHABLE_KEY).mode!=='cloud') throw Error('Configure the public Supabase repository variables before publishing.');"
+          npm run build:pages
+      - run: npm test
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+      - uses: actions/deploy-pages@v4
+        id: deployment

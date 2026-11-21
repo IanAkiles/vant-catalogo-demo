@@ -4,7 +4,7 @@ Demo navegável: fundo creme, logo centralizada, ícones azuis, catálogo sem fa
 
 ## Painel real — ativação pendente
 
-Veja [SETUP-PAINEL.md](SETUP-PAINEL.md). Sem configuração, a vitrine mantém a demonstração aprovada e `/admin` mostra o estado de ativação. Com Supabase configurado, o painel exige conta autorizada, a vitrine lê peças publicadas do banco e não usa produtos locais como fallback em caso de erro. Nenhum projeto externo foi criado.
+Veja [SETUP-PAINEL.md](SETUP-PAINEL.md). Para publicar e testar pelo GitHub Pages, veja [PAGES.md](PAGES.md). Sem configuração, a vitrine mantém a demonstração aprovada e `/admin` mostra o estado de ativação. Com Supabase configurado, o painel exige conta autorizada, a vitrine lê peças publicadas do banco e não usa produtos locais como fallback em caso de erro. Nenhum projeto externo foi criado.
 
 ## Executar
 

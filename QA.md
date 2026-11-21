@@ -12,7 +12,7 @@ npm test
 npm run test:e2e
 ```
 
-São 15 testes Node (incluindo SQL/RLS em PGlite e cálculos da sacola) e dez cenários E2E executados em dois projetos (20 execuções). Consulte [personas, roteiro e critérios](qa/skill/vant-qa/references/acceptance.md).
+São 16 testes Node (incluindo SQL/RLS em PGlite, cálculos da sacola e rotas) e dez cenários E2E executados em dois projetos (20 execuções). `npm run test:pages` adiciona duas execuções contra o build compilado em subpasta, servido sem fallback SPA. Consulte [personas, roteiro e critérios](qa/skill/vant-qa/references/acceptance.md).
 
 ```sh
 npm run test:e2e:ui
